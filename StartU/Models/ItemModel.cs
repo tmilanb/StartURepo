@@ -1,0 +1,63 @@
+﻿using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace StartU.Model
+{
+    public class ItemModel : INotifyPropertyChanged
+    {
+        private string name;
+        private string target;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        public string Target
+        {
+            get { return target; }
+            set
+            {
+                target = value;
+                OnPropertyChanged("Target");
+            }
+        }
+
+        public CheckBox ItemCheckBox { get; set; } = new CheckBox()
+        {
+            Margin = new Thickness(10, 10, 10, 10),
+            Width = 160,
+            Height = 30,
+            FontSize = 16,
+            HorizontalAlignment = HorizontalAlignment.Left,
+            Style = null
+        };
+
+        public Button ItemButton { get; set; } = new Button()
+        {
+            Margin = new Thickness(10, 5, 10, 15),
+            Content = "Path",
+            Width = 100,
+            Height = 30,
+            HorizontalAlignment = HorizontalAlignment.Right
+        };
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected internal void OnPropertyChanged(string propertyname)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
+        }
+
+    }
+}
