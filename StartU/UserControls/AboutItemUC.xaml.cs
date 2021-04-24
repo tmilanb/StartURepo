@@ -14,30 +14,11 @@ namespace StartU.UserControls
         public AboutItemUC()
         {
             InitializeComponent();
-            DataContext = new ItemViewModel();
-        }
-
-        private void BtnFileExplorer_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Multiselect = true;
-            fileDialog.Filter = "All Files|*.*";
-            Nullable<bool> dialogOK = fileDialog.ShowDialog();
-
-            if (dialogOK == true)
+            DataContext = new
             {
-                string sfiles = "";
-
-                foreach (string sfile in fileDialog.FileNames)
-                {
-                    sfiles += ";" + sfile;
-                }
-
-                sfiles = sfiles.Substring(1);
-
-                textBoxTarget.Text = sfiles;
-
-            }
+                list = ((MainWindow)Application.Current.MainWindow).ItemList,
+                model = new ItemViewModel()
+            };
         }
     }
 }

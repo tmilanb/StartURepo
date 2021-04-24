@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Command\Actions.cs" />
     <Compile Include="Command\Converter.cs" />
+    <Compile Include="Model\ItemModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -7,6 +7,7 @@
         xmlns:locals="clr-namespace:CommandTestProject.ViewModels"
         xmlns:localc="clr-namespace:CommandTestProject.Command"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800">
     
     <Window.Resources>
@@ -33,6 +34,40 @@
                 </Button.CommandParameter>
                 
             </Button>
+            <Button Content="Add" Margin="5" Click="Button_Click" />
+
+            <ListView ItemsSource="{Binding ListOfList}"
+                      x:Name="listBoxItem"
+                      Height="80"
+                      Grid.Row="2"
+                      Grid.Column="1"
+                      Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListView ItemsSource="{Binding ListOfTargets}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ListOfTargets}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView 
+                      x:Name="listBoxItemSecond"
+                      Height="80"
+                      Grid.Row="2"
+                      Grid.Column="1"
+                      Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackPanel>
     </Grid>
 </Window>

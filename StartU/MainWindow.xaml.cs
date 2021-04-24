@@ -1,4 +1,8 @@
-﻿using StartU.ViewModels;
+﻿using StartU.Model;
+using StartU.ViewModels;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 
 namespace StartU
@@ -11,7 +15,37 @@ namespace StartU
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ItemViewModel();
+
+            DataContext = new
+            {
+                ItemList,
+                ListCollection,
+                itemViewModel = new ItemViewModel(),
+                listViewModel = new ListViewModel()
+            };         
+        }
+        public ObservableCollection<string> temporaryListOfTargets = new ObservableCollection<string>();
+
+        #region Collections
+
+        // Collection for the items
+        private ObservableCollection<ItemModel> itemList = new ObservableCollection<ItemModel>();
+        public ObservableCollection<ItemModel> ItemList { get { return itemList; } set { itemList = value; OnPropertyChanged("ItemList"); } }
+
+        // Collection for the lists
+        private ObservableCollection<ListModel> listCollection = new ObservableCollection<ListModel>();
+        public ObservableCollection<ListModel> ListCollection { get { return listCollection; } set { listCollection = value; OnPropertyChanged("ListCollection"); } }
+
+        #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected internal void OnPropertyChanged(string propertyname)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
         }
     }
 }

@@ -1,14 +1,34 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace StartU.Model
 {
-    public class ListModel
+    public class ListModel : INotifyPropertyChanged
     {
-        public string Name { get; set; }
+        private string name;
+        private ObservableCollection<string> listOfTargets = new ObservableCollection<string>();
 
-        public string Target { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+        public ObservableCollection<string> ListOfTargets
+        {
+            get { return listOfTargets; }
+            set
+            {
+                value = listOfTargets;
+                OnPropertyChanged("ListOfTargets");
+            }
+        }
 
         public CheckBox ItemCheckBox { get; set; } = new CheckBox()
         {
@@ -29,7 +49,14 @@ namespace StartU.Model
             HorizontalAlignment = HorizontalAlignment.Right
         };
 
-        public List<string> ListOfTargets { get; set; } = new List<string>();
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected internal void OnPropertyChanged(string propertyname)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
+        }
     }
 }

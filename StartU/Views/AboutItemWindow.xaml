@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StartU.Views"
+        xmlns:locals="clr-namespace:StartU"
         xmlns:controls="clr-namespace:StartU.UserControls"
         mc:Ignorable="d"
-        Title="AboutItemWindow" Height="180" Width="650">
+        Title="AboutItemWindow"
+        Height="180"
+        Width="650">
+
     <Grid>
-        <controls:AboutItemUC />
+        <controls:AboutItemUC />        
     </Grid>
 </Window>

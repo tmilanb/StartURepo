@@ -11,32 +11,28 @@ using System.Windows.Input;
 
 namespace StartU.ViewModels
 {
-
-    public class ItemViewModel
+    public class ItemViewModel : BaseViewModel
     {
+        #region Commands
+
         // create the Commands
-        public RelayCommand FirstCommandRelay { get; private set; }
-        public RelayCommand CreateItemCommand { get; private set; }
-        public ICommand RunProcessCommand { get; private set; }
-        public ICommand OpenAddItemWindowCommand { get; private set; }
-        public ICommand OpenAboutItemWindowCommand { get; private set; }
-        
-        // for methods
+        public RelayCommand CreaItemModelCommand { get; private set; }
+        public ICommand OpenAboutWindowCommand { get; private set; }
+        public ICommand OpenAddWindowCommand { get; private set; }
+        public ICommand ChangeTheItemPropsCommand { get; private set; }
+
+        #endregion
+
+        // for the methods
         private readonly Actions _actions = new Actions();
 
         public ItemViewModel()
         {
-            Temp = new ObservableCollection<ItemModel>();
-            RunProcessCommand = new RelayCommand(RunProcess);
-            OpenAddItemWindowCommand = new RelayCommand(OpenAddItemWindow);
-            OpenAboutItemWindowCommand = new RelayCommand(OpenAboutItemWindow);
-            CreateItemCommand = new RelayCommand(CreateItem);
+            OpenAboutWindowCommand = new RelayCommand(OpenAboutWindow);
+            CreaItemModelCommand = new RelayCommand(CreaItemModel);
+            OpenAddWindowCommand = new RelayCommand(OpenAddWindow);
+            ChangeTheItemPropsCommand = new RelayCommand(ChangeTheItemProps);
         }
-
-        public ObservableCollection<ItemModel> Temp { get { return _listOfItems; } set { _listOfItems = value; OnPropertyChanged("ListOfItems"); } }
-
-        private ObservableCollection<ItemModel> _listOfItems;
-        public ObservableCollection<ItemModel> ListOfItems { get { return _listOfItems; } set { _listOfItems = value; OnPropertyChanged("ListOfItems"); } }
 
         #region Properties
 
@@ -75,55 +71,49 @@ namespace StartU.ViewModels
         /// <summary>                     
         /// Functions for the Commands
         /// </summary>
-        /// <param name="parameter"></param>
         
         // Create the item with two parameters
-        public void CreateItem(object parameter)
+        public void CreaItemModel(object parameter)
         {
             var data = parameter as object[];
             var name = data[0] as string;
             var target = data[1] as string;
 
-            _actions.CreateItem(ListOfItems, name, target, ((MainWindow)Application.Current.MainWindow).CheckBoxStackPanel, ((MainWindow)Application.Current.MainWindow).ButtonStackPanel);
+            _actions.CreaItemModel(((MainWindow)Application.Current.MainWindow).ItemList, name, target, ((MainWindow)Application.Current.MainWindow).CheckBoxStackPanel, ((MainWindow)Application.Current.MainWindow).ButtonStackPanel);
 
         }
-        
-        // Run the Process
-        public void RunProcess(object msg)
+
+        // Change the properties of the opened ItemModel
+        public void ChangeTheItemProps(object msg)
         {
-            //_actions.StartTheProcess();
-            MessageBox.Show(ListOfItems.Count.ToString());
-            //_actions.ShowProperties(ListOfItems);
+            //AboutItemUC aboutItemUC = new AboutItemUC();
+            //var item = new ItemModel();
+
+            //_actions.ChangeTheItemProps(aboutItemUC.textBoxName.Text, aboutItemUC.textBoxTarget.Text, item);
+
+            foreach (var a in ((MainWindow)Application.Current.MainWindow).ItemList)
+            {
+                Console.WriteLine(a.Name + a.Target + "\n-----------------");
+            }
         }
+
 
         // Open the window + uc in order to create and add new item
-        public void OpenAddItemWindow(object msg)
+        public void OpenAddWindow(object msg)
         {
             AddItemWindow addItemWin = new AddItemWindow();
             AddItemUC addItemUC = new AddItemUC();
-            _actions.OpenAddItemWindow(addItemWin, addItemUC);
+            _actions.OpenAddWindow(addItemWin, addItemUC);
         }
-
+         
         // Open the window + uc in order to see and modify the values of the item
-        public void OpenAboutItemWindow(object msg)
+        public void OpenAboutWindow(object msg)
         {
             AboutItemWindow aboutItemWin = new AboutItemWindow();
             AboutItemUC aboutItemUC = new AboutItemUC();
-            _actions.OpenAboutItemWindow(aboutItemWin, aboutItemUC);
-            
+            _actions.OpenAboutWindow(aboutItemWin, aboutItemUC);            
         }
 
 
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected internal void OnPropertyChanged(string propertyname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-            }
-        }
     }
 }

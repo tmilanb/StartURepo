@@ -25,6 +25,8 @@ namespace CommandTestProject.ViewModels
             var d1 = data[0] as string;
             var d2 = data[1] as string;
             MessageBox.Show($"{d1} and the other is the {d2}");
+            MainWindow mw = new MainWindow();
+            mw.listBoxItem.Items.Add(d1.ToString());
         }
     }
 }

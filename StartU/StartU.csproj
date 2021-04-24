@@ -37,6 +37,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,6 +60,10 @@
     </ApplicationDefinition>
     <Compile Include="Logic\Converter.cs" />
     <Compile Include="Logic\RelayCommand.cs" />
+    <Compile Include="UserControls\AboutListUC.xaml.cs">
+      <DependentUpon>AboutListUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="UserControls\AboutItemUC.xaml.cs">
       <DependentUpon>AboutItemUC.xaml</DependentUpon>
     </Compile>
@@ -71,14 +78,14 @@
     <Compile Include="Views\AboutItemWindow.xaml.cs">
       <DependentUpon>AboutItemWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AboutListWindow.xaml.cs">
+      <DependentUpon>AboutListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddItemWindow.xaml.cs">
       <DependentUpon>AddItemWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddListWindow.xaml.cs">
       <DependentUpon>AddListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Testwindow.xaml.cs">
-      <DependentUpon>Testwindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\AboutListUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\AddItemUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,15 +120,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AboutListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddItemWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Testwindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

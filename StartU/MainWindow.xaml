@@ -10,18 +10,14 @@
         Height="500"
         Width="360">
 
-    <!--<Window.DataContext>
-        <locals:ItemViewModel/>
-    </Window.DataContext>-->
-
     <Grid>
-        
-        <Grid x:Name="ControlPanel" 
+
+        <Grid x:Name="ControlPanel"
               Width="330"
               Height="Auto"
               Margin="10"
               VerticalAlignment="Top">
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80" />
                 <ColumnDefinition Width="80" />
@@ -38,35 +34,39 @@
                     Margin="10"
                     Content="Save" />
 
-            <Button x:Name="btnRun"
-                    Margin="10"
-                    Grid.Row="1"
-                    Content="Run" />
-
             <Button x:Name="btnLoad"
                     Margin="10"
                     Grid.Column="1"
                     Content="Load" />
 
+            <Button x:Name="btnRun"
+                    Command="{Binding Path=itemViewModel.RunProcessCommand}"
+                    Margin="10"
+                    Grid.Row="1"
+                    Content="Run" />
+
             <Button x:Name="btnRemove"
+                    Command="{Binding Path = listViewModel.RemoveItemCommand}"
                     Margin="10"
                     Grid.Row="1"
                     Grid.Column="1"
                     Content="Remove" />
-            
+
             <Button x:Name="btnAddItem"
+                    Command="{Binding Path=itemViewModel.OpenAddWindowCommand}"
+                    CommandParameter="{Binding Content, ElementName=btnAddItem}"
                     Margin="10"
                     Grid.Column="3"
                     Content="Add Item" />
 
             <Button x:Name="btnAddList"
+                    Command="{Binding Path = listViewModel.OpenAddWindowCommand}"
                     Margin="10"
                     Grid.Row="1"
                     Grid.Column="3"
                     Content="Add List" />
 
             <Button x:Name="btnTest"
-                    Command="{Binding Path=RunProcessCommand}"
                     Margin="10"
                     Grid.Column="2"
                     Content="Test"
@@ -74,8 +74,6 @@
                     Background="White" />
 
             <Button x:Name="btnTestSecond"
-                    Command="{Binding Path=OpenAddItemWindowCommand}"
-                    CommandParameter="{Binding Content, ElementName=btnAddItem}"
                     Margin="10"
                     Grid.Row="1"
                     Grid.Column="2"
@@ -85,22 +83,16 @@
 
             <StackPanel x:Name="CheckBoxStackPanel"
                         Height="Auto"
-                        Width="100"
+                        Width="180"
                         Margin="5"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
                         Grid.Row="2"
-                        Grid.ColumnSpan="2">
-
-                <!--<Button x:Name="a"
-                        Margin="10"
-                        Content="Test 2" />-->
-
-            </StackPanel>
+                        Grid.ColumnSpan="2" />
 
             <StackPanel x:Name="ButtonStackPanel"
                         Height="Auto"
-                        Width="150"
+                        Width="100"
                         Margin="5"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Right"
@@ -108,14 +100,6 @@
                         Grid.Column="2"
                         Grid.ColumnSpan="4" />
 
-        </Grid>
-        
-        <Grid x:Name="ItemPanels"
-              Width="330"
-              Height="200"
-              Margin="10"
-              VerticalAlignment="Bottom">
-            
         </Grid>
     </Grid>
 </Window>

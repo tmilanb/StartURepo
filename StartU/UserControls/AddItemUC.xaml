@@ -12,7 +12,7 @@
 
     <UserControl.InputBindings>
         <KeyBinding Key="Enter"
-                    Command="{Binding CreateItemCommand}"
+                    Command="{Binding CreaItemModelCommand}"
                     CommandParameter="{Binding Text, ElementName=textBoxName}"/>
     </UserControl.InputBindings>
 
@@ -76,7 +76,7 @@
                 Margin="25,10,75,11" />
 
         <Button x:Name="btnAddItem"
-                Command="{Binding Path=CreateItemCommand}"                
+                Command="{Binding Path=CreaItemModelCommand}"                
                 Content="Add"
                 Margin="5"
                 Grid.Row="3"

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StartU.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -13,5 +15,6 @@ namespace StartU
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

@@ -11,7 +11,6 @@ namespace StartU.Views
         public AddItemWindow()
         {
             InitializeComponent();
-            DataContext = new ItemViewModel();
         }
     }
 }

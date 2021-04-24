@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StartU.Views"
+        xmlns:control="clr-namespace:StartU.UserControls"
         mc:Ignorable="d"
-        Title="AddListWindow" Height="450" Width="800">
+        Title="AddListWindow" Height="430" Width="560">
+    
     <Grid>
-        
+        <control:AddListUC />
     </Grid>
 </Window>

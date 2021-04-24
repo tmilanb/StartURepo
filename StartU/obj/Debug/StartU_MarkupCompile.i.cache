@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\z003x60a\source\repos\StartU\StartU\App.xaml
-8-701193428
+9-1992866331
 
-23-1498000189
-131569487696
-MainWindow.xaml;UserControls\AboutItemUC.xaml;UserControls\AddItemUC.xaml;UserControls\AddListUC.xaml;Views\AboutItemWindow.xaml;Views\AddItemWindow.xaml;Views\AddListWindow.xaml;Views\Testwindow.xaml;
+251229950927
+16-287205833
+MainWindow.xaml;UserControls\AboutItemUC.xaml;UserControls\AboutListUC.xaml;UserControls\AddItemUC.xaml;UserControls\AddListUC.xaml;Views\AboutItemWindow.xaml;Views\AboutListWindow.xaml;Views\AddItemWindow.xaml;Views\AddListWindow.xaml;
 
 True
 
