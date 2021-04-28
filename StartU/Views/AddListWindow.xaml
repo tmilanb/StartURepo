@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:StartU.Views"
         xmlns:control="clr-namespace:StartU.UserControls"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="AddListWindow" Height="430" Width="560">
     
     <Grid>

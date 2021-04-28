@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         FontFamily="Fira Code"
+        ResizeMode="NoResize"
         Height="500"
         Width="360">
 
@@ -31,10 +32,12 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="btnSave"
+                    Command="{Binding Path=itemViewModel.SaveItemsCommand}"
                     Margin="10"
                     Content="Save" />
 
             <Button x:Name="btnLoad"
+                    Visibility="Hidden"
                     Margin="10"
                     Grid.Column="1"
                     Content="Load" />
@@ -65,21 +68,6 @@
                     Grid.Row="1"
                     Grid.Column="3"
                     Content="Add List" />
-
-            <Button x:Name="btnTest"
-                    Margin="10"
-                    Grid.Column="2"
-                    Content="Test"
-                    BorderBrush="#FFF1DFDF"
-                    Background="White" />
-
-            <Button x:Name="btnTestSecond"
-                    Margin="10"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Content="Test 2"
-                    Background="White"
-                    BorderBrush="White" />
 
             <StackPanel x:Name="CheckBoxStackPanel"
                         Height="Auto"

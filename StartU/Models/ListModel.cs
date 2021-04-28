@@ -49,8 +49,8 @@ namespace StartU.Model
             HorizontalAlignment = HorizontalAlignment.Right
         };
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         protected internal void OnPropertyChanged(string propertyname)
         {
             if (PropertyChanged != null)

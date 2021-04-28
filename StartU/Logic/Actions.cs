@@ -33,13 +33,24 @@ namespace StartU.Logic
                 return prc;
             }
         }
-        public void RunItems(ObservableCollection<ItemModel> obs)
+        public void RunItems(ObservableCollection<ItemModel> obs, ObservableCollection<ListModel> obsL)
         {
             foreach (var item in obs)
             {
                 if (item.ItemCheckBox.IsChecked == true)
                 {
                     StartTheProcess(item.Target);
+                }
+            }
+
+            foreach (var item in obsL)
+            {
+                if (item.ItemCheckBox.IsChecked == true)
+                {
+                    foreach (var target in item.ListOfTargets)
+                    {
+                        StartTheProcess(target);
+                    }                    
                 }
             }
         }
@@ -256,12 +267,9 @@ namespace StartU.Logic
             win.ShowDialog();
         }
 
-
-
         /// <summary>
         /// Change the properties of the opened Models
         /// </summary>
-
 
         // Change the properties of the opened ItemModel
         public void ChangeTheItiemProps(string name, string target, ItemModel im)
@@ -272,7 +280,6 @@ namespace StartU.Logic
             im.Target = target;
             
         }
-
 
         // Change the properties of the opened ListModel
         public void ChangeTheListProps(string name, string target, ListModel im)

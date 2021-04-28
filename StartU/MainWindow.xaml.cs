@@ -24,6 +24,8 @@ namespace StartU
                 listViewModel = new ListViewModel()
             };         
         }
+
+        // Temporary list for the 
         public ObservableCollection<string> temporaryListOfTargets = new ObservableCollection<string>();
 
         #region Collections
@@ -39,7 +41,6 @@ namespace StartU
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected internal void OnPropertyChanged(string propertyname)
         {
             if (PropertyChanged != null)

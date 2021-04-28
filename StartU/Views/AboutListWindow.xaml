@@ -6,6 +6,7 @@
         xmlns:control="clr-namespace:StartU.UserControls"
         mc:Ignorable="d"
         Title="AboutListWindow"
+        ResizeMode="NoResize"
         Height="430"
         Width="560">
     <Grid>

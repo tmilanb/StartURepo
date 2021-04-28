@@ -80,7 +80,6 @@ namespace StartU.ViewModels
             var target = data[1] as string;
 
             _actions.CreaItemModel(((MainWindow)Application.Current.MainWindow).ItemList, name, target, ((MainWindow)Application.Current.MainWindow).CheckBoxStackPanel, ((MainWindow)Application.Current.MainWindow).ButtonStackPanel);
-
         }
 
         // Change the properties of the opened ItemModel
@@ -96,7 +95,6 @@ namespace StartU.ViewModels
                 Console.WriteLine(a.Name + a.Target + "\n-----------------");
             }
         }
-
 
         // Open the window + uc in order to create and add new item
         public void OpenAddWindow(object msg)
